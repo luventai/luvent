@@ -1,54 +1,355 @@
-/*
-  Design Tokens — Blueprint Chapter 12
-  This is the ONLY place raw color/size values are allowed to exist.
-  Every component references these variables. Nothing hardcodes a hex
-  code, a px value, or a timing value directly.
-*/
-:root {
-  /* Colors */
-  --color-primary: #4F46E5;
-  --color-primary-dark: #3730A3;
-  --color-bg: #FFFFFF;
-  --color-bg-muted: #F7F7FB;
-  --color-text: #14141A;
-  --color-text-muted: #5B5B66;
-  --color-border: #E5E5EC;
-  --color-success: #1B9C63;
-  --color-warning: #B45309;
-  --color-danger: #C0392B;
+// build.js
+// THE Luvent Engine. Blueprint Chapter 11/15 — this is the only place
+// that turns data + components into static HTML files. No page is ever
+// hand-written; every page is a template in this file that reads from
+// /data and /content and renders through /components + lib/layout.js.
+//
+// Run with: node build.js
+// Output goes to /dist — that folder is disposable and gets
+// regenerated on every run (see .github/workflows/deploy.yml).
 
-  /* Typography */
-  --font-heading: system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+import { mkdirSync, writeFileSync, readdirSync, readFileSync, cpSync, existsSync, rmSync } from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-  --text-xs: 12px;
-  --text-sm: 14px;
-  --text-base: 16px;
-  --text-lg: 20px;
-  --text-xl: 24px;
-  --text-2xl: 32px;
-  --text-3xl: 40px;
+import { loadTools, loadCompareList, getToolBySlug, getToolsByCategory, getAllCategories } from "./lib/data.js";
+import { buildMeta, SITE_URL } from "./lib/seo.js";
+import { renderPage } from "./lib/layout.js";
+import { findTools } from "./lib/finder.js";
+import { buildComparison } from "./lib/compare.js";
 
-  /* Spacing scale */
-  --space-4: 4px;
-  --space-8: 8px;
-  --space-12: 12px;
-  --space-16: 16px;
-  --space-24: 24px;
-  --space-32: 32px;
-  --space-48: 48px;
-  --space-64: 64px;
+import { renderHero } from "./components/hero.js";
+import { renderSearch } from "./components/search.js";
+import { renderFinderForm, renderFinderResults } from "./components/finder.js";
+import { renderToolCard } from "./components/tool-card.js";
+import { renderReviewCard } from "./components/review-card.js";
+import { renderCompareCard } from "./components/compare-card.js";
+import { renderPricingCard } from "./components/pricing-card.js";
+import { renderFaq } from "./components/faq.js";
+import { renderVerdict } from "./components/verdict.js";
 
-  /* Radius */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const DIST = path.join(__dirname, "dist");
+const generalFaq = JSON.parse(readFileSync(path.join(__dirname, "content/faq/general.json"), "utf-8"));
 
-  /* Shadow */
-  --shadow-card: 0 1px 3px rgba(20,20,26,0.08), 0 1px 2px rgba(20,20,26,0.04);
+// Every .html page written gets recorded here automatically, so the
+// sitemap can never drift out of sync with what actually got built.
+const sitemapUrls = [];
 
-  /* Motion */
-  --motion-fast: 150ms;
-  --motion-base: 200ms;
-  --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+function write(relPath, html) {
+  const fullPath = path.join(DIST, relPath);
+  mkdirSync(path.dirname(fullPath), { recursive: true });
+  writeFileSync(fullPath, html, "utf-8");
+  if (relPath.endsWith(".html")) {
+    const urlPath = relPath === "index.html" ? "/" : `/${relPath}`;
+    sitemapUrls.push(urlPath);
+  }
 }
+
+// ---------- Page templates ----------
+// Each function below is a PAGE TYPE (Blueprint Ch.5). A page type is
+// only ever built here, and only ever assembles existing components —
+// this is the "no isolated pages" / "no duplicated HTML" rule in code.
+
+function buildHomePage(tools) {
+  const meta = buildMeta({
+    title: "Luvent — Find the right AI tool, faster",
+    description: "Luvent tests and compares AI tools so you don't have to. Get a personal recommendation in under a minute.",
+    path: "/",
+  });
+  const body = `
+    ${renderHero({
+      title: "Find the right AI tool, faster",
+      subtitle: "We test AI tools ourselves and tell you exactly which one fits you — not just a list.",
+      ctaLabel: "Try Finder",
+      ctaHref: "#finder",
+    })}
+    ${renderSearch()}
+    <section class="section container">
+      <h2>Recently tested tools</h2>
+      <div class="grid">
+        ${tools.map(renderToolCard).join("\n")}
+      </div>
+    </section>
+    <div id="finder">${renderFinderForm()}</div>
+    ${renderFaq(generalFaq)}
+  `;
+  write("index.html", renderPage({ meta, body }));
+}
+
+function buildToolPage(tool) {
+  const meta = buildMeta({
+    title: `${tool.name} review — pricing, pros & cons`,
+    description: `An independent review of ${tool.name}: pricing, pros, cons, and who it's actually best for. Last tested ${tool.lastTested}.`,
+    path: `/tool/${tool.slug}.html`,
+  });
+  const body = `
+    <div class="container section tool-page">
+      ${renderReviewCard(tool)}
+      ${renderPricingCard(tool)}
+      ${renderVerdict({ text: tool.verdict })}
+      ${renderFaq([
+        { question: `Does ${tool.name} have a free plan?`, answer: tool.freePlan ? "Yes, it does." : "No, it does not currently offer a free plan." },
+        { question: `When was ${tool.name} last tested?`, answer: `We last tested it on ${tool.lastTested}.` },
+      ])}
+    </div>
+  `;
+  write(`tool/${tool.slug}.html`, renderPage({ meta, body }));
+}
+
+function buildCategoryPage(category, tools) {
+  const meta = buildMeta({
+    title: `Best AI tools for ${category}`,
+    description: `Every AI tool we've tested in the ${category} category, ranked by rating.`,
+    path: `/category/${category}.html`,
+  });
+  const ranked = [...tools].sort((a, b) => b.rating - a.rating);
+  const body = `
+    <div class="container section">
+      <h1>Best AI tools for ${category}</h1>
+      <div class="grid">${ranked.map(renderToolCard).join("\n")}</div>
+    </div>
+  `;
+  write(`category/${category}.html`, renderPage({ meta, body }));
+}
+
+function buildComparePage(compareEntry, allTools) {
+  const comparison = buildComparison(compareEntry.tools, allTools, compareEntry.useCase);
+  const meta = buildMeta({
+    title: comparison.question,
+    description: comparison.verdict,
+    path: `/compare/${compareEntry.slug}.html`,
+  });
+  const body = `
+    <div class="container section">
+      ${renderCompareCard(comparison)}
+      ${renderVerdict({ text: comparison.verdict })}
+    </div>
+  `;
+  write(`compare/${compareEntry.slug}.html`, renderPage({ meta, body }));
+}
+
+function buildGuidePages(allTools) {
+  const guidesDir = path.join(__dirname, "content/guides");
+  if (!existsSync(guidesDir)) return [];
+  const guides = [];
+  for (const file of readdirSync(guidesDir)) {
+    const guide = JSON.parse(readFileSync(path.join(guidesDir, file), "utf-8"));
+    const recommended = guide.recommendedSlugs.map((slug) => getToolBySlug(allTools, slug));
+    const meta = buildMeta({
+      title: guide.title,
+      description: guide.problem,
+      path: `/guides/${guide.slug}.html`,
+    });
+    const body = `
+      <div class="container section">
+        <h1>${guide.title}</h1>
+        <p>${guide.problem}</p>
+        <h2>What to look for</h2>
+        <ul>${guide.whatToLookFor.map((i) => `<li>${i}</li>`).join("")}</ul>
+        <h2>Our recommendations</h2>
+        <div class="grid">${recommended.map(renderToolCard).join("\n")}</div>
+      </div>
+    `;
+    write(`guides/${guide.slug}.html`, renderPage({ meta, body }));
+    guides.push(guide);
+  }
+  return guides;
+}
+
+function buildGuidesIndexPage(guides) {
+  const meta = buildMeta({
+    title: "Guides",
+    description: "In-depth guides to choosing the right AI tool for your use case.",
+    path: "/guides/",
+  });
+  const body = `
+    <div class="container section">
+      <h1>Guides</h1>
+      ${guides.length === 0 ? `<p>No guides published yet.</p>` : `
+        <ul>
+          ${guides.map((g) => `<li><a href="/guides/${g.slug}.html">${g.title}</a></li>`).join("\n")}
+        </ul>
+      `}
+    </div>
+  `;
+  write("guides/index.html", renderPage({ meta, body }));
+}
+
+function buildTopListPage(tools) {
+  const meta = buildMeta({
+    title: "Best AI tools, ranked",
+    description: "Every AI tool on Luvent, ranked by our overall testing score.",
+    path: "/best/",
+  });
+  const ranked = [...tools].sort((a, b) => b.rating - a.rating);
+  const body = `
+    <div class="container section">
+      <h1>Best AI tools, ranked</h1>
+      <div class="grid">${ranked.map(renderToolCard).join("\n")}</div>
+    </div>
+  `;
+  write("best/index.html", renderPage({ meta, body }));
+}
+
+function buildStaticPage({ slug, title, description, bodyHtml }) {
+  const meta = buildMeta({ title, description, path: `/${slug}.html` });
+  write(`${slug}.html`, renderPage({ meta, body: `<div class="container section">${bodyHtml}</div>` }));
+}
+
+function buildFinderDemoResultsPage(tools) {
+  // A static example of Finder's output, so the page still works and is
+  // indexable with zero JS. Live filtering is layered on top client-side.
+  const matches = findTools(tools, { category: "writing", budget: "free", priority: "ease-of-use" });
+  const meta = buildMeta({
+    title: "Finder results",
+    description: "Your personalized AI tool recommendations from Luvent Finder.",
+    path: "/search.html",
+  });
+  const body = `<div class="container section">${renderFinderResults(matches)}</div>`;
+  write("search.html", renderPage({ meta, body }));
+}
+
+// ---------- CSS + assets bundling ----------
+// Blueprint requirement 11 (no duplicated CSS): every component's CSS
+// file gets concatenated into exactly ONE stylesheet, loaded by every
+// page. No page ever links its own separate CSS file.
+
+function bundleCss() {
+  const files = [
+    "styles/tokens.css",
+    "styles/global.css",
+    ...readdirSync(path.join(__dirname, "components"))
+      .filter((f) => f.endsWith(".css"))
+      .map((f) => `components/${f}`),
+  ];
+  const bundled = files
+    .map((relPath) => readFileSync(path.join(__dirname, relPath), "utf-8"))
+    .join("\n\n");
+  write("styles.css", bundled);
+}
+
+function copyAssets() {
+  const src = path.join(__dirname, "assets");
+  if (existsSync(src)) cpSync(src, path.join(DIST, "assets"), { recursive: true });
+
+  // Client-side JS: the entry script, PLUS the exact same lib/ and
+  // components/ files used to build the pages server-side (requirement
+  // 12: no duplicated JavaScript — one Finder implementation, used both
+  // at build time and, verbatim, in the browser).
+  const jsSrc = path.join(__dirname, "assets-js");
+  if (existsSync(jsSrc)) cpSync(jsSrc, path.join(DIST, "js"), { recursive: true });
+  cpSync(path.join(__dirname, "lib"), path.join(DIST, "js", "lib"), { recursive: true });
+  cpSync(path.join(__dirname, "components"), path.join(DIST, "js", "components"), { recursive: true });
+}
+
+function writePublicData(tools) {
+  // The one public copy of tool data the browser is allowed to fetch.
+  // Client-side Finder reads this — never a second, hand-maintained copy.
+  write("data.json", JSON.stringify(tools, null, 2));
+}
+
+// ---------- Production-hosting extras ----------
+// Nothing here needs Node/npm at request time — these are plain static
+// files a shared host (cPanel, Namecheap, etc.) serves as-is.
+
+function writeSitemap() {
+  const urlEntries = sitemapUrls
+    .map((p) => `  <url><loc>${SITE_URL}${p}</loc></url>`)
+    .join("\n");
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlEntries}\n</urlset>\n`;
+  writeFileSync(path.join(DIST, "sitemap.xml"), xml, "utf-8");
+}
+
+function writeRobotsTxt() {
+  const txt = `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`;
+  writeFileSync(path.join(DIST, "robots.txt"), txt, "utf-8");
+}
+
+function write404Page() {
+  const meta = buildMeta({
+    title: "Page not found",
+    description: "The page you're looking for doesn't exist.",
+    path: "/404.html",
+  });
+  const body = `
+    <div class="container section" style="text-align:center">
+      <h1>Page not found</h1>
+      <p>That page doesn't exist or may have moved.</p>
+      <a class="btn btn-primary" href="/">Back to Luvent</a>
+    </div>
+  `;
+  // Written directly (not via write()) so it's excluded from the sitemap.
+  writeFileSync(path.join(DIST, "404.html"), renderPage({ meta, body }), "utf-8");
+}
+
+function writeHtaccess() {
+  // cPanel/Apache config: force HTTPS, use 404.html as the error
+  // document, and stop directory listing. No .htaccess = still works,
+  // this just tightens things up for a real production host.
+  const htaccess = `# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Custom 404 page
+ErrorDocument 404 /404.html
+
+# Disable directory listing
+Options -Indexes
+`;
+  writeFileSync(path.join(DIST, ".htaccess"), htaccess, "utf-8");
+}
+
+// ---------- Run ----------
+
+function build() {
+  if (existsSync(DIST)) rmSync(DIST, { recursive: true });
+  mkdirSync(DIST, { recursive: true });
+
+  const tools = loadTools();
+  const compareList = loadCompareList();
+
+  buildHomePage(tools);
+  tools.forEach(buildToolPage);
+  getAllCategories(tools).forEach((cat) => buildCategoryPage(cat, getToolsByCategory(tools, cat)));
+  compareList.forEach((entry) => buildComparePage(entry, tools));
+  const guides = buildGuidePages(tools);
+  buildGuidesIndexPage(guides);
+  buildTopListPage(tools);
+  buildFinderDemoResultsPage(tools);
+
+  buildStaticPage({
+    slug: "about",
+    title: "About Luvent",
+    description: "Why Luvent exists and how we decide what to recommend.",
+    bodyHtml: `<h1>About Luvent</h1><p>Luvent helps people find the right AI tool faster than any other site — by testing tools ourselves and explaining exactly why we recommend what we recommend.</p>`,
+  });
+  buildStaticPage({
+    slug: "how-we-test",
+    title: "How we test AI tools",
+    description: "Our testing process and rating criteria, explained.",
+    bodyHtml: `<h1>How we test</h1><p>Every tool is scored on ease of use, value for money, features, and support, then re-tested periodically. A tool is only published once every field in our data model is complete.</p>`,
+  });
+
+  bundleCss();
+  copyAssets();
+  writePublicData(tools);
+  writeSitemap();
+  writeRobotsTxt();
+  write404Page();
+  writeHtaccess();
+
+  console.log(`✅ Build complete — ${countFiles(DIST)} files written to /dist`);
+}
+
+function countFiles(dir) {
+  let count = 0;
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    if (entry.isDirectory()) count += countFiles(path.join(dir, entry.name));
+    else count++;
+  }
+  return count;
+}
+
+build();
