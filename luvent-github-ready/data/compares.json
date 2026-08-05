@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "jasper-ai-vs-copy-ai",
+    "tools": ["jasper-ai", "copy-ai"],
+    "useCase": "blog writing"
+  },
+  {
+    "slug": "midjourney-vs-dalle-3",
+    "tools": ["midjourney", "dalle-3"],
+    "useCase": "AI image generation"
+  }
+]

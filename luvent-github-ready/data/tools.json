@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Jasper AI",
+    "slug": "jasper-ai",
+    "category": "writing",
+    "price": "$39/mo",
+    "freePlan": false,
+    "rating": 4.3,
+    "ratingBreakdown": { "ease-of-use": 4, "value-for-money": 3, "features": 5, "support": 4 },
+    "pros": ["Strong brand-voice controls", "Wide template library", "Good team collaboration features"],
+    "cons": ["No free plan", "Can feel expensive for solo users"],
+    "features": [
+      { "key": "Free plan", "value": "No" },
+      { "key": "Team seats", "value": "Yes" },
+      { "key": "API access", "value": "Yes" }
+    ],
+    "screenshots": ["/assets/screenshots/jasper-ai-1.png"],
+    "affiliateLink": "https://example.com/go/jasper-ai",
+    "lastTested": "2026-07-01",
+    "lastUpdated": "2026-07-01",
+    "verdict": "A strong pick for teams that need consistent brand voice across a lot of content, less ideal for solo users on a budget."
+  },
+  {
+    "name": "Copy.ai",
+    "slug": "copy-ai",
+    "category": "writing",
+    "price": "Free / from $36/mo",
+    "freePlan": true,
+    "rating": 4.1,
+    "ratingBreakdown": { "ease-of-use": 5, "value-for-money": 4, "features": 3, "support": 3 },
+    "pros": ["Genuinely usable free plan", "Very beginner-friendly", "Fast output"],
+    "cons": ["Fewer advanced controls than Jasper", "Support is slower on the free tier"],
+    "features": [
+      { "key": "Free plan", "value": "Yes" },
+      { "key": "Team seats", "value": "Yes" },
+      { "key": "API access", "value": "Limited" }
+    ],
+    "screenshots": ["/assets/screenshots/copy-ai-1.png"],
+    "affiliateLink": "https://example.com/go/copy-ai",
+    "lastTested": "2026-07-01",
+    "lastUpdated": "2026-07-01",
+    "verdict": "The easiest on-ramp if you want to try AI writing without paying anything first."
+  },
+  {
+    "name": "Midjourney",
+    "slug": "midjourney",
+    "category": "image",
+    "price": "from $10/mo",
+    "freePlan": false,
+    "rating": 4.7,
+    "ratingBreakdown": { "ease-of-use": 3, "value-for-money": 5, "features": 5, "support": 3 },
+    "pros": ["Best-in-class image quality", "Active community for prompt help", "Frequent model upgrades"],
+    "cons": ["Discord-based workflow has a learning curve", "No free tier anymore"],
+    "features": [
+      { "key": "Free plan", "value": "No" },
+      { "key": "Web app", "value": "Yes" },
+      { "key": "Commercial usage rights", "value": "Yes (paid plans)" }
+    ],
+    "screenshots": ["/assets/screenshots/midjourney-1.png"],
+    "affiliateLink": "https://example.com/go/midjourney",
+    "lastTested": "2026-06-15",
+    "lastUpdated": "2026-06-15",
+    "verdict": "The top choice for image quality if you don't mind a slightly unconventional workflow."
+  },
+  {
+    "name": "DALL·E 3",
+    "slug": "dalle-3",
+    "category": "image",
+    "price": "Free (via ChatGPT) / from $20/mo",
+    "freePlan": true,
+    "rating": 4.2,
+    "ratingBreakdown": { "ease-of-use": 5, "value-for-money": 4, "features": 4, "support": 4 },
+    "pros": ["Very easy to prompt in plain language", "Included free with ChatGPT", "Great at following detailed instructions"],
+    "cons": ["Less photorealistic than Midjourney", "Fewer stylistic controls"],
+    "features": [
+      { "key": "Free plan", "value": "Yes" },
+      { "key": "Web app", "value": "Yes" },
+      { "key": "Commercial usage rights", "value": "Yes" }
+    ],
+    "screenshots": ["/assets/screenshots/dalle-3-1.png"],
+    "affiliateLink": "https://example.com/go/dalle-3",
+    "lastTested": "2026-06-20",
+    "lastUpdated": "2026-06-20",
+    "verdict": "The easiest way into AI image generation, especially if you already use ChatGPT."
+  },
+  {
+    "name": "GitHub Copilot",
+    "slug": "github-copilot",
+    "category": "coding",
+    "price": "Free (limited) / from $10/mo",
+    "freePlan": true,
+    "rating": 4.5,
+    "ratingBreakdown": { "ease-of-use": 4, "value-for-money": 5, "features": 4, "support": 4 },
+    "pros": ["Deep IDE integration", "Strong autocomplete quality", "Free tier is genuinely usable for small projects"],
+    "cons": ["Chat features lag behind some competitors", "Occasional irrelevant suggestions in unfamiliar codebases"],
+    "features": [
+      { "key": "Free plan", "value": "Yes (limited)" },
+      { "key": "IDE support", "value": "VS Code, JetBrains, Neovim" },
+      { "key": "API access", "value": "No" }
+    ],
+    "screenshots": ["/assets/screenshots/github-copilot-1.png"],
+    "affiliateLink": "https://example.com/go/github-copilot",
+    "lastTested": "2026-07-10",
+    "lastUpdated": "2026-07-10",
+    "verdict": "The safest default choice for most developers, thanks to how deeply it integrates with existing tools."
+  },
+  {
+    "name": "Runway",
+    "slug": "runway",
+    "category": "video",
+    "price": "Free (limited) / from $15/mo",
+    "freePlan": true,
+    "rating": 4.0,
+    "ratingBreakdown": { "ease-of-use": 3, "value-for-money": 4, "features": 5, "support": 3 },
+    "pros": ["Wide range of video generation and editing tools", "Fast iteration speed", "Active feature development"],
+    "cons": ["Free credits run out quickly", "Steeper learning curve than image tools"],
+    "features": [
+      { "key": "Free plan", "value": "Yes (limited credits)" },
+      { "key": "Web app", "value": "Yes" },
+      { "key": "Commercial usage rights", "value": "Yes (paid plans)" }
+    ],
+    "screenshots": ["/assets/screenshots/runway-1.png"],
+    "affiliateLink": "https://example.com/go/runway",
+    "lastTested": "2026-05-28",
+    "lastUpdated": "2026-05-28",
+    "verdict": "The most complete AI video toolkit right now, if you're willing to work around the learning curve."
+  }
+]

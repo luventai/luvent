@@ -1,0 +1,11 @@
+.tool-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-16);
+  box-shadow: var(--shadow-card);
+  background: var(--color-bg);
+}
+.tool-card__header { display: flex; justify-content: space-between; align-items: center; }
+.tool-card__rating { font-weight: 700; color: var(--color-primary); }
+.tool-card__category { color: var(--color-text-muted); font-size: var(--text-sm); text-transform: capitalize; }
+.tool-card__price { font-weight: 600; margin-bottom: var(--space-12); }

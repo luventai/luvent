@@ -1,0 +1,11 @@
+{
+  "slug": "best-ai-writing-tools",
+  "title": "How to choose an AI writing tool",
+  "problem": "There are dozens of AI writing tools and most of them look the same on the surface, which makes it hard to know which one actually fits your workflow.",
+  "whatToLookFor": [
+    "Whether it has a genuinely usable free plan, not just a 3-day trial",
+    "How much control you get over tone and brand voice",
+    "Whether it supports your team size, if you're not working solo"
+  ],
+  "recommendedSlugs": ["copy-ai", "jasper-ai"]
+}

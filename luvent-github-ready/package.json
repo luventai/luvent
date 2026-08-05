@@ -1,0 +1,9 @@
+{
+  "name": "luvent-engine",
+  "version": "1.0.0",
+  "description": "Luvent Engine v1 - static site build system",
+  "type": "module",
+  "scripts": {
+    "build": "node build.js"
+  }
+}
