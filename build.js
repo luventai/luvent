@@ -23,10 +23,13 @@ import { renderSearch } from "./components/search.js";
 import { renderFinderForm, renderFinderResults } from "./components/finder.js";
 import { renderToolCard } from "./components/tool-card.js";
 import { renderReviewCard } from "./components/review-card.js";
-import { renderCompareCard } from "./components/compare-card.js";
+import { renderCompareCard, renderCompareTeaser } from "./components/compare-card.js";
 import { renderPricingCard } from "./components/pricing-card.js";
 import { renderFaq } from "./components/faq.js";
 import { renderVerdict } from "./components/verdict.js";
+import { renderCategoryTile } from "./components/category-tile.js";
+import { renderTrust } from "./components/trust.js";
+import { renderNewsletter } from "./components/newsletter.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(__dirname, "dist");
@@ -51,12 +54,28 @@ function write(relPath, html) {
 // only ever built here, and only ever assembles existing components —
 // this is the "no isolated pages" / "no duplicated HTML" rule in code.
 
-function buildHomePage(tools) {
+function buildHomePage(tools, compareList) {
   const meta = buildMeta({
     title: "Luvent — Find the right AI tool, faster",
     description: "Luvent tests and compares AI tools so you don't have to. Get a personal recommendation in under a minute.",
     path: "/",
   });
+
+  const trending = tools.filter((t) => t.isTrending);
+  const editorsPicks = tools.filter((t) => t.isEditorsPick);
+  const featured = tools.filter((t) => t.isFeatured);
+  const newTools = tools.filter((t) => t.isNew);
+  const categories = getAllCategories(tools);
+
+  const toolSection = (heading, list) => list.length === 0 ? "" : `
+    <section class="section container">
+      <h2>${heading}</h2>
+      <div class="grid">
+        ${list.map(renderToolCard).join("\n")}
+      </div>
+    </section>
+  `;
+
   const body = `
     ${renderHero({
       title: "Find the right AI tool, faster",
@@ -65,13 +84,37 @@ function buildHomePage(tools) {
       ctaHref: "#finder",
     })}
     ${renderSearch()}
+
+    ${toolSection("Trending AI", trending)}
+    ${toolSection("Editor's Picks", editorsPicks)}
+    ${toolSection("Featured Tools", featured)}
+    ${toolSection("New AI Tools", newTools)}
+
     <section class="section container">
-      <h2>Recently tested tools</h2>
+      <h2>Categories</h2>
+      <div class="grid">
+        ${categories.map((cat) => renderCategoryTile(cat, getToolsByCategory(tools, cat).length)).join("\n")}
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2>Compare AI Tools</h2>
+      ${renderCompareTeaser(compareList, tools)}
+    </section>
+
+    <section class="section container">
+      <h2>Latest Reviews</h2>
       <div class="grid">
         ${tools.map(renderToolCard).join("\n")}
       </div>
     </section>
+
+    ${renderTrust()}
+
     <div id="finder">${renderFinderForm()}</div>
+
+    ${renderNewsletter()}
+
     ${renderFaq(generalFaq)}
   `;
   write("index.html", renderPage({ meta, body }));
@@ -310,7 +353,7 @@ function build() {
   const tools = loadTools();
   const compareList = loadCompareList();
 
-  buildHomePage(tools);
+  buildHomePage(tools, compareList);
   tools.forEach(buildToolPage);
   getAllCategories(tools).forEach((cat) => buildCategoryPage(cat, getToolsByCategory(tools, cat)));
   compareList.forEach((entry) => buildComparePage(entry, tools));

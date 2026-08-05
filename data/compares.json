@@ -8,5 +8,10 @@
     "slug": "midjourney-vs-dalle-3",
     "tools": ["midjourney", "dalle-3"],
     "useCase": "AI image generation"
+  },
+  {
+    "slug": "claude-vs-chatgpt",
+    "tools": ["claude", "chatgpt"],
+    "useCase": "everyday AI assistant use"
   }
 ]
