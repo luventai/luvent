@@ -19,7 +19,6 @@ import { findTools } from "./lib/finder.js";
 import { buildComparison } from "./lib/compare.js";
 
 import { renderHero } from "./components/hero.js";
-import { renderMarquee } from "./components/marquee.js";
 import { renderSearch } from "./components/search.js";
 import { renderFinderForm, renderFinderResults } from "./components/finder.js";
 import { renderToolCard } from "./components/tool-card.js";
@@ -35,6 +34,7 @@ import { renderScreenshots } from "./components/screenshots.js";
 import { renderCompanyProfile } from "./components/company-profile.js";
 import { renderUseCases } from "./components/use-cases.js";
 import { renderUpdateHistory } from "./components/update-history.js";
+import { renderLogo } from "./components/logo.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(__dirname, "dist");
@@ -88,7 +88,6 @@ function buildHomePage(tools, compareList) {
       ctaLabel: "Try Finder",
       ctaHref: "#finder",
     })}
-    ${renderMarquee()}
     ${renderSearch()}
 
     ${toolSection("Trending AI", trending)}
@@ -331,6 +330,9 @@ function write404Page() {
   });
   const body = `
     <div class="container section" style="text-align:center">
+      <div class="hero__logo" style="margin-bottom: var(--space-24)">
+        ${renderLogo({ size: "large", variant: "icon", animated: true })}
+      </div>
       <h1>Page not found</h1>
       <p>That page doesn't exist or may have moved.</p>
       <a class="btn btn-primary" href="/">Back to Luvent</a>

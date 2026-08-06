@@ -1,0 +1,39 @@
+<svg viewBox="0 0 340 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="luventLogoTitle">
+  <title id="luventLogoTitle">Luvent — Find the right AI tool, faster</title>
+  <defs>
+    <linearGradient id="lv-mark-grad" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#B08CFF"/>
+      <stop offset="55%" stop-color="#7C5CFF"/>
+      <stop offset="100%" stop-color="#4B2E9E"/>
+    </linearGradient>
+    <linearGradient id="lv-star-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C9BFFF"/>
+      <stop offset="100%" stop-color="#8E71FF"/>
+    </linearGradient>
+  </defs>
+
+  <g class="luvent-mark" transform="translate(0,0) scale(0.8)">
+    <path fill="url(#lv-mark-grad)"
+      d="M40 14
+         C40 8.5 44.5 4 50 4
+         C55.5 4 60 8.5 60 14
+         L60 76
+         C60 82 65 87 71 87
+         L98 87
+         C104 87 108 91.5 108 97
+         C104 102.5 104 107 98 107
+         L67 107
+         C51.5 107 40 95.5 40 80
+         Z"/>
+    <path class="luvent-mark__star" fill="url(#lv-star-grad)"
+      d="M83 12
+         C84.8 24.6 87.4 27.2 100 29
+         C87.4 30.8 84.8 33.4 83 46
+         C81.2 33.4 78.6 30.8 66 29
+         C78.6 27.2 81.2 24.6 83 12
+         Z"/>
+  </g>
+
+  <text x="140" y="66" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="700"
+    font-size="42" letter-spacing="2" fill="#F6F4FB">LUVENT</text>
+</svg>

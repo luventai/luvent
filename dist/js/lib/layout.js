@@ -1,5 +1,6 @@
 import { renderMetaTags, BASE_PATH } from "./seo.js";
 import { renderFooter } from "../components/footer.js";
+import { renderLogo } from "../components/logo.js";
 
 const BASE = BASE_PATH;
 
@@ -15,10 +16,7 @@ function renderNav() {
   return `
     <header class="site-header">
       <nav class="container site-header__inner">
-        <a class="site-logo" href="${BASE}/">
-          <span class="site-logo__mark" aria-hidden="true"></span>
-          Luvent AI
-        </a>
+        ${renderLogo({ size: "medium", variant: "horizontal", link: true, animated: true })}
 
         <button
           class="site-nav__toggle"
@@ -48,6 +46,18 @@ function renderFontLinks() {
 `;
 }
 
+function renderBrandHeadLinks() {
+  return `
+<link rel="icon" type="image/svg+xml" href="${BASE}/assets/logos/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="${BASE}/assets/logos/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="${BASE}/assets/logos/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="${BASE}/assets/logos/apple-touch-icon.png">
+<link rel="manifest" href="${BASE}/assets/manifest.webmanifest">
+<meta name="theme-color" content="#0E0C14">
+<meta name="twitter:image" content="https://luventai.github.io${BASE}/assets/logos/social-card.png">
+`;
+}
+
 export function renderPage({ meta, body }) {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -56,6 +66,7 @@ export function renderPage({ meta, body }) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ${renderMetaTags(meta)}
+${renderBrandHeadLinks()}
 ${renderFontLinks()}
 
 <link rel="stylesheet" href="${BASE}/styles.css">
@@ -76,4 +87,4 @@ ${renderFooter()}
 
 </body>
 </html>`;
-} 
+}

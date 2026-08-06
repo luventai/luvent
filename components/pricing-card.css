@@ -1,0 +1,8 @@
+.pricing-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-16);
+  background: var(--color-bg-muted);
+}
+.pricing-card__price { font-size: var(--text-xl); font-weight: 700; }
+.pricing-card__free { color: var(--color-success); font-weight: 600; }

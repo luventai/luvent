@@ -14,34 +14,6 @@
   padding: 20px 0;
   gap: var(--space-32);
 }
-.site-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  font-size: 18px;
-  color: var(--color-text);
-  text-decoration: none;
-  transition: opacity var(--motion-base) var(--motion-ease);
-}
-
-.site-logo:hover {
-  opacity: 0.8;
-}
-
-.site-logo__mark {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 14px;
-  box-shadow: 0 4px 12px rgba(124, 92, 255, 0.3);
-  flex-shrink: 0;
-}
 .site-nav {
   display: flex;
   align-items: center;

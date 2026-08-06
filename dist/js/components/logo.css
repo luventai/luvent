@@ -1,0 +1,287 @@
+/*
+  components/logo.css
+  Styles for the reusable Logo component (components/logo.js) and the
+  shared "brand animation system" used anywhere the mark appears:
+  header, footer, hero, 404, Finder loading state, trust badges.
+
+  Rules of the system:
+  - Only transform / opacity / filter are ever animated (no layout
+    thrashing, GPU-friendly).
+  - Every animation is subtle by design — a slow float, a breathing
+    glow, a twinkling star. Nothing should read as "busy".
+  - Everything respects prefers-reduced-motion: reduce (see bottom).
+*/
+
+.luvent-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1;
+}
+
+a.luvent-logo {
+  transition: opacity var(--motion-base) var(--motion-ease);
+}
+a.luvent-logo:hover {
+  opacity: 0.9;
+}
+
+.luvent-logo__mark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--luvent-logo-icon-size, 32px);
+  height: var(--luvent-logo-icon-size, 32px);
+  flex-shrink: 0;
+}
+
+.luvent-logo__icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 4px 14px rgba(124, 92, 255, 0.35));
+  transition: filter var(--motion-base) var(--motion-ease), transform var(--motion-base) var(--motion-ease);
+}
+
+/* the sparkle is baked into the SVG already; this pseudo layer adds an
+   extra soft highlight pulse on top for interactive contexts */
+.luvent-logo__star {
+  position: absolute;
+  top: -10%;
+  right: -12%;
+  width: 34%;
+  height: 34%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.luvent-logo__word {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* ---------- sizes ---------- */
+.luvent-logo--small { gap: 8px; }
+.luvent-logo--large { gap: 14px; }
+
+/* ---------- icon-only variant ---------- */
+.luvent-logo--icon .luvent-logo__word { display: none; }
+
+/* ==========================================================
+   Brand animation system — idle state
+   ========================================================== */
+
+/* Slow float: a very small vertical drift, like the mark is resting
+   in place rather than pinned dead-still. */
+@keyframes luvent-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Glow breathe: the drop-shadow softly grows and settles. */
+@keyframes luvent-glow-breathe {
+  0%, 100% { filter: drop-shadow(0 4px 14px rgba(124, 92, 255, 0.32)); }
+  50% { filter: drop-shadow(0 6px 22px rgba(124, 92, 255, 0.55)); }
+}
+
+.luvent-logo--animated .luvent-logo__icon {
+  animation:
+    luvent-float 6s var(--motion-ease) infinite,
+    luvent-glow-breathe 4s var(--motion-ease) infinite;
+}
+
+/* Star twinkle: a gentle opacity/scale pulse, offset from the glow so
+   the two never look mechanically synced. */
+@keyframes luvent-twinkle {
+  0%, 20% { opacity: 0; transform: scale(0.6) rotate(0deg); }
+  35% { opacity: 1; transform: scale(1) rotate(8deg); }
+  55% { opacity: 0.4; transform: scale(0.85) rotate(0deg); }
+  100% { opacity: 0; transform: scale(0.6) rotate(0deg); }
+}
+
+.luvent-logo--animated .luvent-logo__star {
+  background: radial-gradient(circle, rgba(201, 191, 255, 0.9), transparent 70%);
+  animation: luvent-twinkle 5.5s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+/* ---------- interactive states (nav / hover / click) ---------- */
+
+a.luvent-logo:hover .luvent-logo__icon {
+  transform: rotate(-4deg) scale(1.06);
+  filter: drop-shadow(0 6px 20px rgba(124, 92, 255, 0.55));
+}
+
+a.luvent-logo:hover .luvent-logo__star {
+  opacity: 1;
+  animation: luvent-twinkle 1.4s ease-in-out infinite;
+}
+
+a.luvent-logo:active .luvent-logo__icon {
+  transform: scale(0.94);
+  transition-duration: var(--motion-fast);
+}
+
+a.luvent-logo:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- scroll-reactive state (see hero + main.js) ----------
+   .is-scrolled is toggled on <body> once the user scrolls past the
+   hero; the site-header logo quietly settles down: smaller glow,
+   no idle float, so it reads as "active/anchored" rather than
+   "floating hero decoration". */
+body.is-scrolled .site-header .luvent-logo__icon {
+  animation: none;
+  filter: drop-shadow(0 2px 8px rgba(124, 92, 255, 0.25));
+}
+body.is-scrolled .site-header .luvent-logo--animated .luvent-logo__star {
+  animation: luvent-twinkle 5.5s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+/* ==========================================================
+   Hero logo — larger stage, shrinks + glow reduces on scroll
+   ========================================================== */
+.hero__logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-32);
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 0.4s var(--motion-ease), opacity 0.4s var(--motion-ease);
+  will-change: transform, opacity;
+}
+
+.hero__logo .luvent-logo__mark {
+  width: 72px;
+  height: 72px;
+}
+
+.hero__logo .luvent-logo__icon {
+  filter: drop-shadow(0 8px 32px rgba(124, 92, 255, 0.5));
+}
+
+body.is-scrolled .hero__logo {
+  transform: scale(0.72) translateY(-6px);
+  opacity: 0.75;
+}
+
+body.is-scrolled .hero__logo .luvent-logo__icon {
+  filter: drop-shadow(0 4px 14px rgba(124, 92, 255, 0.25));
+}
+
+/* ==========================================================
+   Loading state — replaces generic spinners (Finder, page loads)
+   ========================================================== */
+.luvent-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+  padding: var(--space-48) var(--space-16);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.luvent-loader__mark {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.luvent-loader__icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 4px 16px rgba(124, 92, 255, 0.4));
+  animation:
+    luvent-pulse-scale 1.4s var(--motion-ease) infinite,
+    luvent-glow-breathe 1.4s var(--motion-ease) infinite;
+}
+
+@keyframes luvent-pulse-scale {
+  0%, 100% { transform: scale(0.94); }
+  50% { transform: scale(1.04); }
+}
+
+.luvent-loader__star {
+  position: absolute;
+  top: -10%;
+  right: -12%;
+  width: 34%;
+  height: 34%;
+  background: radial-gradient(circle, rgba(201, 191, 255, 0.9), transparent 70%);
+  animation: luvent-twinkle 1.4s ease-in-out infinite;
+}
+
+.luvent-loader__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+/* ==========================================================
+   "Verified / Recommended by Luvent" inline brand badge
+   used in trust section, tool cards, newsletter, footer
+   ========================================================== */
+.luvent-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 4px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(124, 92, 255, 0.28);
+  background: rgba(124, 92, 255, 0.1);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.luvent-badge .luvent-logo__mark {
+  width: 16px;
+  height: 16px;
+}
+
+.luvent-badge .luvent-logo__icon {
+  animation: none;
+  filter: none;
+}
+
+/* ==========================================================
+   Respect reduced motion: every animation above collapses to a
+   static, still frame. No float, no breathing glow, no twinkle,
+   no scroll-tied transforms.
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .luvent-logo__icon,
+  .luvent-logo__star,
+  .luvent-loader__icon,
+  .luvent-loader__star,
+  .hero__logo {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  a.luvent-logo:hover .luvent-logo__icon {
+    transform: none;
+  }
+
+  body.is-scrolled .hero__logo {
+    transform: none;
+    opacity: 1;
+  }
+}

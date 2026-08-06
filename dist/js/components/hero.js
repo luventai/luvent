@@ -1,10 +1,15 @@
 import { escapeHtml, BASE_PATH } from "../lib/seo.js";
+import { renderLogo } from "./logo.js";
 
 export function renderHero({ title, subtitle, ctaLabel, ctaHref }) {
   return `
 <section class="hero section">
 
   <div class="container hero__inner">
+
+    <div class="hero__logo">
+      ${renderLogo({ size: "large", variant: "icon", animated: true })}
+    </div>
 
     <div class="hero__eyebrow">
       <span class="hero__dot"></span>

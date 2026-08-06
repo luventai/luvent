@@ -91,17 +91,9 @@
   color: var(--color-primary);
   text-decoration: none;
 }
-.tool-card__verified {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  color: var(--color-text);
-  font-size: 10px;
-  line-height: 1;
+.tool-card__verified.luvent-badge {
+  vertical-align: middle;
+  margin-left: 6px;
   flex-shrink: 0;
 }
 .tool-card__category {

@@ -1,10 +1,15 @@
 import { escapeHtml, BASE_PATH } from "../lib/seo.js";
+import { renderLogo } from "./logo.js";
 
 export function renderHero({ title, subtitle, ctaLabel, ctaHref }) {
   return `
 <section class="hero section">
 
   <div class="container hero__inner">
+
+    <div class="hero__logo">
+      ${renderLogo({ size: "large", variant: "icon", animated: true })}
+    </div>
 
     <div class="hero__eyebrow">
       <span class="hero__dot"></span>
@@ -36,12 +41,12 @@ export function renderHero({ title, subtitle, ctaLabel, ctaHref }) {
     <div class="hero__stats">
 
       <div class="hero__stat">
-        <strong data-counter data-count-to="50" data-count-suffix="+">0+</strong>
+        <strong>50+</strong>
         <span>AI tools tested</span>
       </div>
 
       <div class="hero__stat">
-        <strong data-counter data-count-to="9">0</strong>
+        <strong>9</strong>
         <span>Categories</span>
       </div>
 

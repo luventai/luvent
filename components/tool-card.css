@@ -8,22 +8,11 @@
   padding: var(--space-16);
   box-shadow: var(--shadow-card);
   background: var(--color-bg-muted);
-  transition: transform var(--motion-base) var(--motion-ease),
-              border-color var(--motion-base) var(--motion-ease),
-              box-shadow var(--motion-base) var(--motion-ease),
-              filter var(--motion-base) var(--motion-ease);
+  transition: transform var(--motion-base) var(--motion-ease), border-color var(--motion-base) var(--motion-ease);
 }
 .tool-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   border-color: var(--color-primary);
-  box-shadow: var(--shadow-card), var(--shadow-glow);
-  filter: brightness(1.03);
-}
-.tool-card:hover .tool-card__avatar {
-  transform: scale(1.06);
-}
-.tool-card:hover .tool-card__tag {
-  transform: translateY(-1px);
 }
 
 .tool-card__tags {
@@ -45,7 +34,6 @@
   border-radius: 999px;
   border: 1px solid transparent;
   white-space: nowrap;
-  transition: transform var(--motion-base) var(--motion-ease);
 }
 .tool-card__tag--pick {
   color: var(--color-accent);
@@ -87,7 +75,6 @@
   font-weight: 700;
   font-size: var(--text-sm);
   color: var(--color-text);
-  transition: transform var(--motion-base) var(--motion-ease);
 }
 .tool-card__heading h3 {
   margin: 0;
@@ -104,17 +91,9 @@
   color: var(--color-primary);
   text-decoration: none;
 }
-.tool-card__verified {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  color: var(--color-text);
-  font-size: 10px;
-  line-height: 1;
+.tool-card__verified.luvent-badge {
+  vertical-align: middle;
+  margin-left: 6px;
   flex-shrink: 0;
 }
 .tool-card__category {

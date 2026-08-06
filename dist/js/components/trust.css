@@ -7,6 +7,9 @@
   display: block;
   margin-bottom: var(--space-8);
 }
+.trust .luvent-badge {
+  margin-bottom: var(--space-16);
+}
 .trust__lede {
   max-width: 600px;
   color: var(--color-text-muted);
