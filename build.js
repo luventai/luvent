@@ -19,6 +19,7 @@ import { findTools } from "./lib/finder.js";
 import { buildComparison } from "./lib/compare.js";
 
 import { renderHero } from "./components/hero.js";
+import { renderMarquee } from "./components/marquee.js";
 import { renderSearch } from "./components/search.js";
 import { renderFinderForm, renderFinderResults } from "./components/finder.js";
 import { renderToolCard } from "./components/tool-card.js";
@@ -87,6 +88,7 @@ function buildHomePage(tools, compareList) {
       ctaLabel: "Try Finder",
       ctaHref: "#finder",
     })}
+    ${renderMarquee()}
     ${renderSearch()}
 
     ${toolSection("Trending AI", trending)}

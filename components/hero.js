@@ -36,12 +36,12 @@ export function renderHero({ title, subtitle, ctaLabel, ctaHref }) {
     <div class="hero__stats">
 
       <div class="hero__stat">
-        <strong>50+</strong>
+        <strong data-counter data-count-to="50" data-count-suffix="+">0+</strong>
         <span>AI tools tested</span>
       </div>
 
       <div class="hero__stat">
-        <strong>9</strong>
+        <strong data-counter data-count-to="9">0</strong>
         <span>Categories</span>
       </div>
 

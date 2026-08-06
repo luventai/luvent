@@ -10,12 +10,18 @@
   background: var(--color-bg-muted);
   color: var(--color-text);
   text-decoration: none;
-  transition: transform var(--motion-base) var(--motion-ease), border-color var(--motion-base) var(--motion-ease);
+  transition: transform var(--motion-base) var(--motion-ease),
+              border-color var(--motion-base) var(--motion-ease),
+              box-shadow var(--motion-base) var(--motion-ease);
 }
 .category-tile:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
   border-color: var(--color-primary);
+  box-shadow: var(--shadow-glow);
   text-decoration: none;
+}
+.category-tile:hover .category-tile__icon {
+  transform: scale(1.08);
 }
 .category-tile__icon {
   width: 40px;
@@ -28,6 +34,7 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: var(--text-base);
+  transition: transform var(--motion-base) var(--motion-ease);
 }
 .category-tile__name {
   font-family: var(--font-heading);

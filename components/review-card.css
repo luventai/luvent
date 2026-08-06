@@ -1,6 +1,0 @@
-.review-card { padding: var(--space-24) 0; }
-.review-card__verdict { font-size: var(--text-lg); }
-.review-card__columns { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-24); }
-.review-card__pros li { color: var(--color-success); }
-.review-card__cons li { color: var(--color-danger); }
-@media (max-width: 600px) { .review-card__columns { grid-template-columns: 1fr; } }

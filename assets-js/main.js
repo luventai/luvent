@@ -2,6 +2,7 @@
 
 import { findTools } from "./lib/finder.js";
 import { renderFinderResults } from "./components/finder.js";
+import { initMotion } from "./motion.js";
 
 async function initFinder() {
   const form = document.querySelector("[data-luvent-finder]");
@@ -30,3 +31,4 @@ async function initFinder() {
 }
 
 initFinder();
+initMotion();
