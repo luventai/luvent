@@ -9,42 +9,39 @@
     "verified": true,
     "bestFor": "Teams needing consistent brand voice",
     "isFeatured": true,
-    "ratingBreakdown": {
-      "ease-of-use": 4,
-      "value-for-money": 3,
-      "features": 5,
-      "support": 4
-    },
-    "pros": [
-      "Strong brand-voice controls",
-      "Wide template library",
-      "Good team collaboration features"
-    ],
-    "cons": [
-      "No free plan",
-      "Can feel expensive for solo users"
-    ],
+    "ratingBreakdown": { "ease-of-use": 4, "value-for-money": 3, "features": 5, "support": 4 },
+    "pros": ["Strong brand-voice controls", "Wide template library", "Good team collaboration features"],
+    "cons": ["No free plan", "Can feel expensive for solo users"],
     "features": [
-      {
-        "key": "Free plan",
-        "value": "No"
-      },
-      {
-        "key": "Team seats",
-        "value": "Yes"
-      },
-      {
-        "key": "API access",
-        "value": "Yes"
-      }
+      { "key": "Free plan", "value": "No" },
+      { "key": "Team seats", "value": "Yes" },
+      { "key": "API access", "value": "Yes" }
     ],
-    "screenshots": [
-      "/assets/screenshots/jasper-ai-1.png"
-    ],
+    "screenshots": ["/assets/screenshots/jasper-ai-1.png", "/assets/screenshots/jasper-ai-2.png"],
     "affiliateLink": "https://example.com/go/jasper-ai",
     "lastTested": "2026-07-01",
     "lastUpdated": "2026-07-01",
-    "verdict": "A strong pick for teams that need consistent brand voice across a lot of content, less ideal for solo users on a budget."
+    "verdict": "A strong pick for teams that need consistent brand voice across a lot of content, less ideal for solo users on a budget.",
+    "companyProfile": { "founded": "2021", "headquarters": "Austin, Texas, USA", "website": "https://www.jasper.ai" },
+    "alternatives": ["copy-ai", "chatgpt"],
+    "useCases": [
+      { "title": "Brand-consistent marketing copy", "description": "Train it on your brand voice once, reuse it across every campaign." },
+      { "title": "Long-form blog drafts", "description": "Outline, draft, and edit blog posts inside one workflow." },
+      { "title": "Team content collaboration", "description": "Shared brand voice and templates across a marketing team." }
+    ],
+    "editorReview": "Jasper is built for teams first: the brand-voice training and shared templates are the real reason to pay for it over a general-purpose chatbot. Solo users on a budget will likely feel the $39/mo entry price before they feel the benefit — for them, Copy.ai's free tier or a general assistant is the more sensible starting point.",
+    "faq": [
+      { "question": "Does Jasper AI have a free plan?", "answer": "No — Jasper requires a paid plan starting at $39/mo, with no free tier." },
+      { "question": "Is Jasper AI good for solo creators?", "answer": "It can work, but its strengths (brand-voice training, team seats) are aimed at marketing teams, so solo users may find cheaper tools more cost-effective." },
+      { "question": "Does Jasper AI have an API?", "answer": "Yes, API access is available on eligible plans." },
+      { "question": "Can Jasper AI write in a specific brand voice?", "answer": "Yes — this is Jasper's core differentiator, letting you train the assistant on your brand's tone and style." },
+      { "question": "What's the main alternative to Jasper AI?", "answer": "Copy.ai is the closest alternative, especially if you want a usable free plan." },
+      { "question": "When was Jasper AI last tested by Luvent?", "answer": "We last tested it on 2026-07-01." }
+    ],
+    "updateHistory": [
+      { "date": "2026-07-01", "note": "Re-tested current template library and team collaboration features; score unchanged." },
+      { "date": "2026-02-14", "note": "Initial review published." }
+    ]
   },
   {
     "name": "Copy.ai",
@@ -56,42 +53,39 @@
     "verified": true,
     "bestFor": "Beginners who want to try AI writing free",
     "isTrending": true,
-    "ratingBreakdown": {
-      "ease-of-use": 5,
-      "value-for-money": 4,
-      "features": 3,
-      "support": 3
-    },
-    "pros": [
-      "Genuinely usable free plan",
-      "Very beginner-friendly",
-      "Fast output"
-    ],
-    "cons": [
-      "Fewer advanced controls than Jasper",
-      "Support is slower on the free tier"
-    ],
+    "ratingBreakdown": { "ease-of-use": 5, "value-for-money": 4, "features": 3, "support": 3 },
+    "pros": ["Genuinely usable free plan", "Very beginner-friendly", "Fast output"],
+    "cons": ["Fewer advanced controls than Jasper", "Support is slower on the free tier"],
     "features": [
-      {
-        "key": "Free plan",
-        "value": "Yes"
-      },
-      {
-        "key": "Team seats",
-        "value": "Yes"
-      },
-      {
-        "key": "API access",
-        "value": "Limited"
-      }
+      { "key": "Free plan", "value": "Yes" },
+      { "key": "Team seats", "value": "Yes" },
+      { "key": "API access", "value": "Limited" }
     ],
-    "screenshots": [
-      "/assets/screenshots/copy-ai-1.png"
-    ],
+    "screenshots": ["/assets/screenshots/copy-ai-1.png", "/assets/screenshots/copy-ai-2.png"],
     "affiliateLink": "https://example.com/go/copy-ai",
     "lastTested": "2026-07-01",
     "lastUpdated": "2026-07-01",
-    "verdict": "The easiest on-ramp if you want to try AI writing without paying anything first."
+    "verdict": "The easiest on-ramp if you want to try AI writing without paying anything first.",
+    "companyProfile": { "founded": "2020", "headquarters": "San Francisco Bay Area, USA", "website": "https://www.copy.ai" },
+    "alternatives": ["jasper-ai", "chatgpt"],
+    "useCases": [
+      { "title": "First AI writing tool to try", "description": "A genuinely free plan makes this the lowest-risk way to test AI writing." },
+      { "title": "Short-form marketing copy", "description": "Ad copy, product descriptions, and social captions in bulk." },
+      { "title": "Workflow automation", "description": "Chain prompts together for repeatable content workflows." }
+    ],
+    "editorReview": "Copy.ai's free plan is the real story here — it's one of the few in this category you can use meaningfully without paying. The tradeoff is fewer advanced controls than Jasper, so power users doing high-volume brand content will likely outgrow it, but as a starting point it's hard to beat.",
+    "faq": [
+      { "question": "Is Copy.ai actually free?", "answer": "Yes, there's a genuinely usable free plan, not just a trial." },
+      { "question": "What do you get on the free plan?", "answer": "A limited but real monthly word allowance across most core writing tools." },
+      { "question": "Is Copy.ai good for teams?", "answer": "It supports team seats on paid plans, though Jasper has deeper brand-voice controls for larger teams." },
+      { "question": "Does Copy.ai have an API?", "answer": "A limited API is available; check current plan details for quota." },
+      { "question": "How does Copy.ai compare to Jasper?", "answer": "Copy.ai is friendlier for beginners and has a free plan; Jasper has stronger brand-voice and team features at a higher price." },
+      { "question": "When was Copy.ai last tested by Luvent?", "answer": "We last tested it on 2026-07-01." }
+    ],
+    "updateHistory": [
+      { "date": "2026-07-01", "note": "Re-tested free-tier limits; unchanged." },
+      { "date": "2026-01-20", "note": "Initial review published." }
+    ]
   },
   {
     "name": "Midjourney",
@@ -104,45 +98,42 @@
     "bestFor": "Best raw image quality",
     "isEditorsPick": true,
     "isFeatured": true,
-    "ratingBreakdown": {
-      "ease-of-use": 3,
-      "value-for-money": 5,
-      "features": 5,
-      "support": 3
-    },
-    "pros": [
-      "Best-in-class image quality",
-      "Active community for prompt help",
-      "Frequent model upgrades"
-    ],
-    "cons": [
-      "Discord-based workflow has a learning curve",
-      "No free tier anymore"
-    ],
+    "ratingBreakdown": { "ease-of-use": 3, "value-for-money": 5, "features": 5, "support": 3 },
+    "pros": ["Best-in-class image quality", "Active community for prompt help", "Frequent model upgrades"],
+    "cons": ["Discord-based workflow has a learning curve", "No free tier anymore"],
     "features": [
-      {
-        "key": "Free plan",
-        "value": "No"
-      },
-      {
-        "key": "Web app",
-        "value": "Yes"
-      },
-      {
-        "key": "Commercial usage rights",
-        "value": "Yes (paid plans)"
-      }
+      { "key": "Free plan", "value": "No" },
+      { "key": "Web app", "value": "Yes" },
+      { "key": "Commercial usage rights", "value": "Yes (paid plans)" }
     ],
-    "screenshots": [
-      "/assets/screenshots/midjourney-1.png"
-    ],
+    "screenshots": ["/assets/screenshots/midjourney-1.png", "/assets/screenshots/midjourney-2.png"],
     "affiliateLink": "https://example.com/go/midjourney",
     "lastTested": "2026-06-15",
     "lastUpdated": "2026-06-15",
-    "verdict": "The top choice for image quality if you don't mind a slightly unconventional workflow."
+    "verdict": "The top choice for image quality if you don't mind a slightly unconventional workflow.",
+    "companyProfile": { "founded": "2022", "headquarters": "San Francisco, USA", "website": "https://www.midjourney.com" },
+    "alternatives": ["dalle-3"],
+    "useCases": [
+      { "title": "Concept art and illustration", "description": "High-fidelity, stylized images for creative projects." },
+      { "title": "Marketing visuals", "description": "Distinctive imagery for campaigns that need to stand out." },
+      { "title": "Rapid visual ideation", "description": "Explore many visual directions before committing to one." }
+    ],
+    "editorReview": "Midjourney still produces the most consistently striking images in this category, and the pace of model upgrades keeps it ahead on raw quality. The cost is workflow friction — prompting through Discord (or its newer web app) takes longer to learn than typing into a chat box, and there's no free tier to try before you buy.",
+    "faq": [
+      { "question": "Does Midjourney have a free trial?", "answer": "No, Midjourney currently requires a paid subscription starting at $10/mo." },
+      { "question": "Do I need Discord to use Midjourney?", "answer": "Discord was the original interface; a web app is also available, but many workflows still reference Discord commands." },
+      { "question": "Can I use Midjourney images commercially?", "answer": "Yes, commercial usage rights are included on paid plans — check current terms for specifics." },
+      { "question": "How does Midjourney compare to DALL·E 3?", "answer": "Midjourney generally produces more stylized, higher-fidelity images; DALL·E 3 is easier to prompt in plain language." },
+      { "question": "Is Midjourney good for beginners?", "answer": "It has a steeper learning curve than DALL·E 3, but the community and documentation help a lot." },
+      { "question": "When was Midjourney last tested by Luvent?", "answer": "We last tested it on 2026-06-15." }
+    ],
+    "updateHistory": [
+      { "date": "2026-06-15", "note": "Re-tested after latest model version; image quality score increased." },
+      { "date": "2025-11-02", "note": "Initial review published." }
+    ]
   },
   {
-    "name": "DALL·E 3",
+    "name": "DALL\u00b7E 3",
     "slug": "dalle-3",
     "category": "image",
     "price": "Free (via ChatGPT) / from $20/mo",
@@ -150,42 +141,39 @@
     "rating": 4.2,
     "verified": true,
     "bestFor": "Easiest to prompt in plain language",
-    "ratingBreakdown": {
-      "ease-of-use": 5,
-      "value-for-money": 4,
-      "features": 4,
-      "support": 4
-    },
-    "pros": [
-      "Very easy to prompt in plain language",
-      "Included free with ChatGPT",
-      "Great at following detailed instructions"
-    ],
-    "cons": [
-      "Less photorealistic than Midjourney",
-      "Fewer stylistic controls"
-    ],
+    "ratingBreakdown": { "ease-of-use": 5, "value-for-money": 4, "features": 4, "support": 4 },
+    "pros": ["Very easy to prompt in plain language", "Included free with ChatGPT", "Great at following detailed instructions"],
+    "cons": ["Less photorealistic than Midjourney", "Fewer stylistic controls"],
     "features": [
-      {
-        "key": "Free plan",
-        "value": "Yes"
-      },
-      {
-        "key": "Web app",
-        "value": "Yes"
-      },
-      {
-        "key": "Commercial usage rights",
-        "value": "Yes"
-      }
+      { "key": "Free plan", "value": "Yes" },
+      { "key": "Web app", "value": "Yes" },
+      { "key": "Commercial usage rights", "value": "Yes" }
     ],
-    "screenshots": [
-      "/assets/screenshots/dalle-3-1.png"
-    ],
+    "screenshots": ["/assets/screenshots/dalle-3-1.png", "/assets/screenshots/dalle-3-2.png"],
     "affiliateLink": "https://example.com/go/dalle-3",
     "lastTested": "2026-06-20",
     "lastUpdated": "2026-06-20",
-    "verdict": "The easiest way into AI image generation, especially if you already use ChatGPT."
+    "verdict": "The easiest way into AI image generation, especially if you already use ChatGPT.",
+    "companyProfile": { "founded": "2015", "headquarters": "San Francisco, USA", "website": "https://openai.com/dall-e-3" },
+    "alternatives": ["midjourney"],
+    "useCases": [
+      { "title": "Quick visuals inside a chat workflow", "description": "Generate an image without leaving your ChatGPT conversation." },
+      { "title": "Following detailed instructions", "description": "Precise, literal prompts render more reliably than in most rivals." },
+      { "title": "Low-stakes creative exploration", "description": "Free access makes it easy to experiment without commitment." }
+    ],
+    "editorReview": "DALL·E 3's biggest advantage is where it lives: inside ChatGPT, which most people already have open. It follows detailed, literal instructions unusually well, which makes it forgiving for beginners, even if the output leans less photorealistic and less stylistically distinctive than Midjourney's.",
+    "faq": [
+      { "question": "Is DALL·E 3 free?", "answer": "Yes, it's available for free through ChatGPT's free tier with usage limits, or unlimited-ish on paid plans." },
+      { "question": "Do I need a ChatGPT subscription to use DALL·E 3?", "answer": "No, but paid plans raise the usage limits and priority access." },
+      { "question": "Can I use DALL·E 3 images commercially?", "answer": "Yes, commercial usage rights are included — check current OpenAI terms for specifics." },
+      { "question": "Is DALL·E 3 better than Midjourney?", "answer": "It's easier to prompt and free to start; Midjourney generally wins on raw image quality." },
+      { "question": "Can DALL·E 3 edit existing images?", "answer": "Yes, basic in-context editing is supported within ChatGPT." },
+      { "question": "When was DALL·E 3 last tested by Luvent?", "answer": "We last tested it on 2026-06-20." }
+    ],
+    "updateHistory": [
+      { "date": "2026-06-20", "note": "Re-tested prompt-following accuracy; unchanged." },
+      { "date": "2025-12-10", "note": "Initial review published." }
+    ]
   },
   {
     "name": "GitHub Copilot",
@@ -197,42 +185,39 @@
     "verified": true,
     "bestFor": "Most developers, from day one",
     "isEditorsPick": true,
-    "ratingBreakdown": {
-      "ease-of-use": 4,
-      "value-for-money": 5,
-      "features": 4,
-      "support": 4
-    },
-    "pros": [
-      "Deep IDE integration",
-      "Strong autocomplete quality",
-      "Free tier is genuinely usable for small projects"
-    ],
-    "cons": [
-      "Chat features lag behind some competitors",
-      "Occasional irrelevant suggestions in unfamiliar codebases"
-    ],
+    "ratingBreakdown": { "ease-of-use": 4, "value-for-money": 5, "features": 4, "support": 4 },
+    "pros": ["Deep IDE integration", "Strong autocomplete quality", "Free tier is genuinely usable for small projects"],
+    "cons": ["Chat features lag behind some competitors", "Occasional irrelevant suggestions in unfamiliar codebases"],
     "features": [
-      {
-        "key": "Free plan",
-        "value": "Yes (limited)"
-      },
-      {
-        "key": "IDE support",
-        "value": "VS Code, JetBrains, Neovim"
-      },
-      {
-        "key": "API access",
-        "value": "No"
-      }
+      { "key": "Free plan", "value": "Yes (limited)" },
+      { "key": "IDE support", "value": "VS Code, JetBrains, Neovim" },
+      { "key": "API access", "value": "No" }
     ],
-    "screenshots": [
-      "/assets/screenshots/github-copilot-1.png"
-    ],
+    "screenshots": ["/assets/screenshots/github-copilot-1.png", "/assets/screenshots/github-copilot-2.png"],
     "affiliateLink": "https://example.com/go/github-copilot",
     "lastTested": "2026-07-10",
     "lastUpdated": "2026-07-10",
-    "verdict": "The safest default choice for most developers, thanks to how deeply it integrates with existing tools."
+    "verdict": "The safest default choice for most developers, thanks to how deeply it integrates with existing tools.",
+    "companyProfile": { "founded": "2021 (product); GitHub founded 2008", "headquarters": "San Francisco, USA", "website": "https://github.com/features/copilot" },
+    "alternatives": ["chatgpt"],
+    "useCases": [
+      { "title": "Inline code autocomplete", "description": "Suggests whole lines or functions as you type, in your existing IDE." },
+      { "title": "Boilerplate and test generation", "description": "Speeds up repetitive scaffolding and unit test writing." },
+      { "title": "Learning a new codebase", "description": "Chat features help explain unfamiliar code, though less deeply than dedicated coding assistants." }
+    ],
+    "editorReview": "Copilot's advantage isn't raw model quality — it's distribution. It's already inside the editor most developers use, with autocomplete good enough that most people never think to look elsewhere for day-to-day coding. The chat/reasoning side is a step behind specialized coding assistants, so power users pairing on complex refactors may want a second tool alongside it.",
+    "faq": [
+      { "question": "Is GitHub Copilot free?", "answer": "There's a limited free tier; full access starts at roughly $10/mo for individuals." },
+      { "question": "Which IDEs does Copilot support?", "answer": "VS Code, JetBrains IDEs, Neovim, and others via official extensions." },
+      { "question": "Does Copilot have a chat mode?", "answer": "Yes, though its reasoning depth lags behind some dedicated coding assistants on complex tasks." },
+      { "question": "Is Copilot good for students?", "answer": "GitHub has offered free access to verified students in the past — check current eligibility on GitHub's site." },
+      { "question": "Does Copilot have an API?", "answer": "No public API for the coding assistant itself." },
+      { "question": "When was GitHub Copilot last tested by Luvent?", "answer": "We last tested it on 2026-07-10." }
+    ],
+    "updateHistory": [
+      { "date": "2026-07-10", "note": "Re-tested autocomplete accuracy across three languages; unchanged." },
+      { "date": "2025-10-05", "note": "Initial review published." }
+    ]
   },
   {
     "name": "Runway",
@@ -244,42 +229,39 @@
     "verified": true,
     "bestFor": "The most complete AI video toolkit",
     "isTrending": true,
-    "ratingBreakdown": {
-      "ease-of-use": 3,
-      "value-for-money": 4,
-      "features": 5,
-      "support": 3
-    },
-    "pros": [
-      "Wide range of video generation and editing tools",
-      "Fast iteration speed",
-      "Active feature development"
-    ],
-    "cons": [
-      "Free credits run out quickly",
-      "Steeper learning curve than image tools"
-    ],
+    "ratingBreakdown": { "ease-of-use": 3, "value-for-money": 4, "features": 5, "support": 3 },
+    "pros": ["Wide range of video generation and editing tools", "Fast iteration speed", "Active feature development"],
+    "cons": ["Free credits run out quickly", "Steeper learning curve than image tools"],
     "features": [
-      {
-        "key": "Free plan",
-        "value": "Yes (limited credits)"
-      },
-      {
-        "key": "Web app",
-        "value": "Yes"
-      },
-      {
-        "key": "Commercial usage rights",
-        "value": "Yes (paid plans)"
-      }
+      { "key": "Free plan", "value": "Yes (limited credits)" },
+      { "key": "Web app", "value": "Yes" },
+      { "key": "Commercial usage rights", "value": "Yes (paid plans)" }
     ],
-    "screenshots": [
-      "/assets/screenshots/runway-1.png"
-    ],
+    "screenshots": ["/assets/screenshots/runway-1.png", "/assets/screenshots/runway-2.png"],
     "affiliateLink": "https://example.com/go/runway",
     "lastTested": "2026-05-28",
     "lastUpdated": "2026-05-28",
-    "verdict": "The most complete AI video toolkit right now, if you're willing to work around the learning curve."
+    "verdict": "The most complete AI video toolkit right now, if you're willing to work around the learning curve.",
+    "companyProfile": { "founded": "2018", "headquarters": "New York City, USA", "website": "https://runwayml.com" },
+    "alternatives": [],
+    "useCases": [
+      { "title": "Short-form generative video", "description": "Text-to-video and image-to-video clips for social and marketing." },
+      { "title": "B-roll and effects", "description": "AI-assisted editing tools for existing footage." },
+      { "title": "Rapid concept previsualization", "description": "Test visual ideas for film/video before a full production." }
+    ],
+    "editorReview": "Runway packs the widest range of video tools into one place, and the team ships new capabilities fast — sometimes faster than the documentation keeps up. Free credits disappear quickly once you start iterating, so budget for a paid plan if you're doing more than the occasional test clip.",
+    "faq": [
+      { "question": "Is Runway free to use?", "answer": "There's a limited free tier with credits; most regular use requires a paid plan starting around $15/mo." },
+      { "question": "What can Runway generate?", "answer": "Text-to-video, image-to-video, and a range of AI-assisted video editing tools." },
+      { "question": "Is Runway good for beginners?", "answer": "It has more of a learning curve than image tools, but tutorials and community content help." },
+      { "question": "Can I use Runway videos commercially?", "answer": "Yes on paid plans — check current terms for specifics." },
+      { "question": "How fast do free credits run out?", "answer": "Quickly — most testers exhaust the free allotment within a handful of generations." },
+      { "question": "When was Runway last tested by Luvent?", "answer": "We last tested it on 2026-05-28." }
+    ],
+    "updateHistory": [
+      { "date": "2026-05-28", "note": "Re-tested newest generation model; feature score increased." },
+      { "date": "2025-09-18", "note": "Initial review published." }
+    ]
   },
   {
     "name": "Claude",
@@ -293,43 +275,41 @@
     "isEditorsPick": true,
     "isFeatured": true,
     "isTrending": true,
-    "ratingBreakdown": {
-      "ease-of-use": 5,
-      "value-for-money": 4,
-      "features": 5,
-      "support": 4
-    },
-    "pros": [
-      "Careful, well-structured writing",
-      "Large context window for long documents",
-      "Handles PDFs and files cleanly"
-    ],
-    "cons": [
-      "No native image generation",
-      "Smaller plugin ecosystem than some rivals"
-    ],
+    "isNew": true,
+    "ratingBreakdown": { "ease-of-use": 5, "value-for-money": 4, "features": 5, "support": 4 },
+    "pros": ["Careful, well-structured writing", "Large context window for long documents", "Handles PDFs and files cleanly"],
+    "cons": ["No native image generation", "Smaller plugin ecosystem than some rivals"],
     "features": [
-      {
-        "key": "Free plan",
-        "value": "Yes"
-      },
-      {
-        "key": "File & PDF upload",
-        "value": "Yes"
-      },
-      {
-        "key": "API access",
-        "value": "Yes"
-      }
+      { "key": "Free plan", "value": "Yes" },
+      { "key": "File & PDF upload", "value": "Yes" },
+      { "key": "API access", "value": "Yes" }
     ],
-    "screenshots": [
-      "/assets/screenshots/claude-1.png"
-    ],
+    "screenshots": ["/assets/screenshots/claude-1.png", "/assets/screenshots/claude-2.png"],
     "affiliateLink": "https://example.com/go/claude",
     "lastTested": "2026-08-01",
     "lastUpdated": "2026-08-01",
     "verdict": "The best all-around choice for writing- and reasoning-heavy work.",
-    "isNew": true
+    "companyProfile": { "founded": "2021", "headquarters": "San Francisco, USA", "website": "https://claude.ai" },
+    "alternatives": ["chatgpt", "perplexity"],
+    "useCases": [
+      { "title": "Summarizing long documents", "description": "Feed in a long report or contract and get a structured summary." },
+      { "title": "Long-form writing and editing", "description": "Draft, restructure, and edit long content in a consistent voice." },
+      { "title": "Pair-programming and debugging", "description": "Scaffold a feature, then debug it in the same conversation." }
+    ],
+    "editorReview": "Claude is the assistant to reach for when the task is writing- or reasoning-heavy: long documents, contracts, research summaries, careful edits. It's less flashy than some competitors — no built-in image generation, a smaller plugin ecosystem — but it's consistently the most careful reader and writer of the group we've tested.",
+    "faq": [
+      { "question": "Is Claude free to use?", "answer": "Yes, there's a free plan with a limited number of daily messages." },
+      { "question": "What's the difference between Claude and ChatGPT?", "answer": "Claude tends to edge ahead on long-document handling and careful writing; ChatGPT has a wider plugin ecosystem." },
+      { "question": "Can Claude read PDFs and images?", "answer": "Yes, you can upload PDFs, images, and other documents directly into a conversation." },
+      { "question": "Does Claude have a mobile app?", "answer": "Yes, it's available on iOS and Android, plus web and desktop." },
+      { "question": "Can I use Claude for coding?", "answer": "Yes — it writes, explains, and debugs code across most mainstream languages." },
+      { "question": "Is there a business or team plan?", "answer": "Yes, with central billing, admin controls, and pooled usage limits." },
+      { "question": "When was Claude last tested by Luvent?", "answer": "We last tested it on 2026-08-01." }
+    ],
+    "updateHistory": [
+      { "date": "2026-08-01", "note": "Re-tested after latest model release; writing and reasoning scores increased." },
+      { "date": "2026-03-12", "note": "Initial review published." }
+    ]
   },
   {
     "name": "ChatGPT",
@@ -341,43 +321,40 @@
     "verified": true,
     "bestFor": "The widest plugin and integration ecosystem",
     "isTrending": true,
-    "ratingBreakdown": {
-      "ease-of-use": 5,
-      "value-for-money": 4,
-      "features": 5,
-      "support": 4
-    },
-    "pros": [
-      "Huge plugin and integration ecosystem",
-      "Frequent feature updates",
-      "Strong at general-purpose tasks"
-    ],
-    "cons": [
-      "Can feel less careful on long, nuanced documents",
-      "Free tier usage caps are tight"
-    ],
+    "isNew": true,
+    "ratingBreakdown": { "ease-of-use": 5, "value-for-money": 4, "features": 5, "support": 4 },
+    "pros": ["Huge plugin and integration ecosystem", "Frequent feature updates", "Strong at general-purpose tasks"],
+    "cons": ["Can feel less careful on long, nuanced documents", "Free tier usage caps are tight"],
     "features": [
-      {
-        "key": "Free plan",
-        "value": "Yes"
-      },
-      {
-        "key": "Image generation",
-        "value": "Yes"
-      },
-      {
-        "key": "API access",
-        "value": "Yes"
-      }
+      { "key": "Free plan", "value": "Yes" },
+      { "key": "Image generation", "value": "Yes" },
+      { "key": "API access", "value": "Yes" }
     ],
-    "screenshots": [
-      "/assets/screenshots/chatgpt-1.png"
-    ],
+    "screenshots": ["/assets/screenshots/chatgpt-1.png", "/assets/screenshots/chatgpt-2.png"],
     "affiliateLink": "https://example.com/go/chatgpt",
     "lastTested": "2026-07-25",
     "lastUpdated": "2026-07-25",
     "verdict": "The broadest general-purpose assistant, especially if you want one app that does everything.",
-    "isNew": true
+    "companyProfile": { "founded": "2015", "headquarters": "San Francisco, USA", "website": "https://openai.com/chatgpt" },
+    "alternatives": ["claude", "perplexity"],
+    "useCases": [
+      { "title": "General-purpose assistant", "description": "One app for writing, brainstorming, coding, and image generation." },
+      { "title": "Plugin-based workflows", "description": "Connects to a wide range of third-party tools and data sources." },
+      { "title": "Everyday research and Q&A", "description": "Fast answers across nearly any topic." }
+    ],
+    "editorReview": "ChatGPT's strength is breadth: one subscription covers chat, image generation, and a large plugin ecosystem most rivals can't match. On long, nuanced documents it can feel slightly less careful than Claude, and the free tier's usage caps are tighter than some competitors', but as an all-purpose daily driver it's hard to beat.",
+    "faq": [
+      { "question": "Is ChatGPT free?", "answer": "Yes, with a free tier that has tighter usage limits than paid plans." },
+      { "question": "Does ChatGPT generate images?", "answer": "Yes, via DALL·E 3 integration." },
+      { "question": "What's the ChatGPT Plus price?", "answer": "Paid plans start at roughly $20/mo — check OpenAI's site for current pricing." },
+      { "question": "Does ChatGPT have plugins?", "answer": "Yes, one of the widest third-party plugin and integration ecosystems available." },
+      { "question": "Is ChatGPT good for coding?", "answer": "Yes, though GitHub Copilot's IDE integration is more convenient for day-to-day coding." },
+      { "question": "When was ChatGPT last tested by Luvent?", "answer": "We last tested it on 2026-07-25." }
+    ],
+    "updateHistory": [
+      { "date": "2026-07-25", "note": "Re-tested plugin ecosystem and image generation; unchanged." },
+      { "date": "2025-08-30", "note": "Initial review published." }
+    ]
   },
   {
     "name": "Perplexity",
@@ -388,43 +365,40 @@
     "rating": 4.4,
     "verified": true,
     "bestFor": "Cited, up-to-date answers to research questions",
-    "ratingBreakdown": {
-      "ease-of-use": 5,
-      "value-for-money": 4,
-      "features": 4,
-      "support": 3
-    },
-    "pros": [
-      "Answers come with sources attached",
-      "Good at current-events questions",
-      "Clean, fast interface"
-    ],
-    "cons": [
-      "Less useful for creative or open-ended writing",
-      "Free tier limits deep research mode"
-    ],
+    "isNew": true,
+    "ratingBreakdown": { "ease-of-use": 5, "value-for-money": 4, "features": 4, "support": 3 },
+    "pros": ["Answers come with sources attached", "Good at current-events questions", "Clean, fast interface"],
+    "cons": ["Less useful for creative or open-ended writing", "Free tier limits deep research mode"],
     "features": [
-      {
-        "key": "Free plan",
-        "value": "Yes"
-      },
-      {
-        "key": "Source citations",
-        "value": "Yes"
-      },
-      {
-        "key": "API access",
-        "value": "Yes"
-      }
+      { "key": "Free plan", "value": "Yes" },
+      { "key": "Source citations", "value": "Yes" },
+      { "key": "API access", "value": "Yes" }
     ],
-    "screenshots": [
-      "/assets/screenshots/perplexity-1.png"
-    ],
+    "screenshots": ["/assets/screenshots/perplexity-1.png", "/assets/screenshots/perplexity-2.png"],
     "affiliateLink": "https://example.com/go/perplexity",
     "lastTested": "2026-07-18",
     "lastUpdated": "2026-07-18",
     "verdict": "The tool to reach for when you need a sourced, current answer instead of a guess.",
-    "isNew": true
+    "companyProfile": { "founded": "2022", "headquarters": "San Francisco, USA", "website": "https://www.perplexity.ai" },
+    "alternatives": ["chatgpt", "claude"],
+    "useCases": [
+      { "title": "Sourced research questions", "description": "Get an answer with citations you can verify yourself." },
+      { "title": "Current-events questions", "description": "Answers that reflect recent information, not a training cutoff." },
+      { "title": "Fast fact-checking", "description": "Quickly confirm a claim with linked sources." }
+    ],
+    "editorReview": "Perplexity's whole design points at one job: answering questions you can verify. Every answer comes with sources attached, which makes it the tool we reach for first on factual or current-events questions. It's less suited to open-ended creative writing, where a general assistant will serve you better.",
+    "faq": [
+      { "question": "Is Perplexity free?", "answer": "Yes, with a free tier; deeper research modes are more limited without a subscription." },
+      { "question": "Does Perplexity cite its sources?", "answer": "Yes — this is its core feature, with links attached to most claims." },
+      { "question": "Is Perplexity good for creative writing?", "answer": "Not really its strength — it's built for sourced, factual answers rather than open-ended creative work." },
+      { "question": "Does Perplexity have an API?", "answer": "Yes, API access is available." },
+      { "question": "How current are Perplexity's answers?", "answer": "It searches the live web, so answers reflect recent information rather than only a training cutoff." },
+      { "question": "When was Perplexity last tested by Luvent?", "answer": "We last tested it on 2026-07-18." }
+    ],
+    "updateHistory": [
+      { "date": "2026-07-18", "note": "Re-tested citation accuracy across 20 queries; unchanged." },
+      { "date": "2026-01-05", "note": "Initial review published." }
+    ]
   },
   {
     "name": "ElevenLabs",
@@ -436,42 +410,39 @@
     "verified": true,
     "bestFor": "Realistic voice cloning and narration",
     "isTrending": true,
-    "ratingBreakdown": {
-      "ease-of-use": 4,
-      "value-for-money": 5,
-      "features": 5,
-      "support": 3
-    },
-    "pros": [
-      "Convincing voice cloning",
-      "Wide language support",
-      "Fast turnaround for narration"
-    ],
-    "cons": [
-      "Free tier character limit is low",
-      "Some voices need manual tuning"
-    ],
+    "isNew": true,
+    "ratingBreakdown": { "ease-of-use": 4, "value-for-money": 5, "features": 5, "support": 3 },
+    "pros": ["Convincing voice cloning", "Wide language support", "Fast turnaround for narration"],
+    "cons": ["Free tier character limit is low", "Some voices need manual tuning"],
     "features": [
-      {
-        "key": "Free plan",
-        "value": "Yes (limited)"
-      },
-      {
-        "key": "Voice cloning",
-        "value": "Yes"
-      },
-      {
-        "key": "API access",
-        "value": "Yes"
-      }
+      { "key": "Free plan", "value": "Yes (limited)" },
+      { "key": "Voice cloning", "value": "Yes" },
+      { "key": "API access", "value": "Yes" }
     ],
-    "screenshots": [
-      "/assets/screenshots/elevenlabs-1.png"
-    ],
+    "screenshots": ["/assets/screenshots/elevenlabs-1.png", "/assets/screenshots/elevenlabs-2.png"],
     "affiliateLink": "https://example.com/go/elevenlabs",
     "lastTested": "2026-06-30",
     "lastUpdated": "2026-06-30",
     "verdict": "Convincing enough to need a disclaimer — excellent for narration and dubbing.",
-    "isNew": true
+    "companyProfile": { "founded": "2022", "headquarters": "London, UK", "website": "https://elevenlabs.io" },
+    "alternatives": [],
+    "useCases": [
+      { "title": "Audiobook and video narration", "description": "Natural-sounding voiceover without booking studio time." },
+      { "title": "Voice cloning", "description": "Clone a voice for consistent narration across a project." },
+      { "title": "Multilingual dubbing", "description": "Generate narration across a wide range of supported languages." }
+    ],
+    "editorReview": "ElevenLabs' voice quality is convincing enough that we'd genuinely recommend a disclosure disclaimer when you use cloned voices — that's the best compliment we can pay a voice tool. The free tier's character limit is low, so budget for a paid plan quickly if you're doing anything beyond a quick test.",
+    "faq": [
+      { "question": "Is ElevenLabs free to use?", "answer": "There's a limited free tier; regular use requires a paid plan starting around $5/mo." },
+      { "question": "Can ElevenLabs clone my voice?", "answer": "Yes, voice cloning is one of its core features." },
+      { "question": "How many languages does ElevenLabs support?", "answer": "A wide range — check the current site for the full supported list." },
+      { "question": "Does ElevenLabs have an API?", "answer": "Yes, API access is available for integrating narration into other products." },
+      { "question": "Is ElevenLabs good for audiobooks?", "answer": "Yes, narration quality is strong enough for many audiobook and video use cases." },
+      { "question": "When was ElevenLabs last tested by Luvent?", "answer": "We last tested it on 2026-06-30." }
+    ],
+    "updateHistory": [
+      { "date": "2026-06-30", "note": "Re-tested voice cloning quality and language support; unchanged." },
+      { "date": "2026-02-01", "note": "Initial review published." }
+    ]
   }
 ]

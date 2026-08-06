@@ -30,6 +30,10 @@ import { renderVerdict } from "./components/verdict.js";
 import { renderCategoryTile } from "./components/category-tile.js";
 import { renderTrust } from "./components/trust.js";
 import { renderNewsletter } from "./components/newsletter.js";
+import { renderScreenshots } from "./components/screenshots.js";
+import { renderCompanyProfile } from "./components/company-profile.js";
+import { renderUseCases } from "./components/use-cases.js";
+import { renderUpdateHistory } from "./components/update-history.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(__dirname, "dist");
@@ -120,7 +124,7 @@ function buildHomePage(tools, compareList) {
   write("index.html", renderPage({ meta, body }));
 }
 
-function buildToolPage(tool) {
+function buildToolPage(tool, allTools) {
   const meta = buildMeta({
     title: `${tool.name} review — pricing, pros & cons`,
     description: `An independent review of ${tool.name}: pricing, pros, cons, and who it's actually best for. Last tested ${tool.lastTested}.`,
@@ -129,12 +133,20 @@ function buildToolPage(tool) {
   const body = `
     <div class="container section tool-page">
       ${renderReviewCard(tool)}
+      ${renderScreenshots(tool)}
+      ${renderCompanyProfile(tool, allTools)}
       ${renderPricingCard(tool)}
-      ${renderVerdict({ text: tool.verdict })}
-      ${renderFaq([
-        { question: `Does ${tool.name} have a free plan?`, answer: tool.freePlan ? "Yes, it does." : "No, it does not currently offer a free plan." },
-        { question: `When was ${tool.name} last tested?`, answer: `We last tested it on ${tool.lastTested}.` },
-      ])}
+      ${renderUseCases(tool)}
+      ${renderVerdict({ text: tool.editorReview || tool.verdict })}
+      ${renderUpdateHistory(tool)}
+      ${renderFaq(
+        tool.faq && tool.faq.length > 0
+          ? tool.faq.map((f) => ({ question: f.question, answer: f.answer }))
+          : [
+              { question: `Does ${tool.name} have a free plan?`, answer: tool.freePlan ? "Yes, it does." : "No, it does not currently offer a free plan." },
+              { question: `When was ${tool.name} last tested?`, answer: `We last tested it on ${tool.lastTested}.` },
+            ]
+      )}
     </div>
   `;
   write(`tool/${tool.slug}.html`, renderPage({ meta, body }));
@@ -354,7 +366,7 @@ function build() {
   const compareList = loadCompareList();
 
   buildHomePage(tools, compareList);
-  tools.forEach(buildToolPage);
+  tools.forEach((tool) => buildToolPage(tool, tools));
   getAllCategories(tools).forEach((cat) => buildCategoryPage(cat, getToolsByCategory(tools, cat)));
   compareList.forEach((entry) => buildComparePage(entry, tools));
   const guides = buildGuidePages(tools);

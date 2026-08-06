@@ -49,6 +49,27 @@ const REQUIRED_FIELDS = [
   "pros", "cons", "features", "affiliateLink", "lastTested", "lastUpdated",
 ];
 
+// Optional fields, added for the "IMDb-level" tool profile expansion.
+// Not enforced by validateTools() — a tool can still publish without
+// them — but any component that reads one of these must handle it
+// being absent (see components/company-profile.js, use-cases.js,
+// update-history.js, screenshots.js for the pattern).
+//   verified            boolean
+//   bestFor             string
+//   isTrending          boolean
+//   isEditorsPick       boolean
+//   isFeatured          boolean
+//   isNew               boolean
+//   ratingBreakdown     { [criterion: string]: number (1-5) }
+//   screenshots         string[] (paths under /assets/screenshots/)
+//   verdict             string — short, card-length summary
+//   companyProfile      { founded, headquarters, website }
+//   alternatives        string[] — slugs of other tools in this file
+//   useCases            { title, description }[]
+//   editorReview        string — the long-form review paragraph(s)
+//   faq                 { question, answer }[]
+//   updateHistory       { date, note }[]
+
 function validateTools(tools) {
   for (const tool of tools) {
     for (const field of REQUIRED_FIELDS) {
